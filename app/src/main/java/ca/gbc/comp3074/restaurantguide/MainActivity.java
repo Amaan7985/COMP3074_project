@@ -91,13 +91,13 @@ public class MainActivity extends AppCompatActivity {
     private void loadRestaurantList() {
         restaurantList = new ArrayList<>();
         restaurantList.add(new Restaurant(
-                1,
                 "Test Restaurant",
                 "123 Main Street, Toronto, ON",
                 "123-456-7890",
                 "A delightful Italian and Pizza place.",
                 List.of("Italian", "Pizza"),
-                4
+                4.0f,
+                "Great food and ambiance!" // Added a review
         ));
     }
 }

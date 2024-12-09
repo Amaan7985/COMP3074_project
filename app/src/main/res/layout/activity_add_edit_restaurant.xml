@@ -1,7 +1,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/bb1">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,6 +14,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name"
+            android:textColorHint="#FFFFFF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:background="#66000000"
+            android:padding="8dp"
             android:inputType="text" />
 
         <EditText
@@ -20,6 +27,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Address"
+            android:textColorHint="#FFFFFF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:background="#66000000"
+            android:padding="8dp"
             android:inputType="textPostalAddress"
             android:layout_marginTop="8dp" />
 
@@ -28,6 +41,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Phone"
+            android:textColorHint="#FFFFFF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:background="#66000000"
+            android:padding="8dp"
             android:inputType="phone"
             android:layout_marginTop="8dp" />
 
@@ -36,6 +55,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Description"
+            android:textColorHint="#FFFFFF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:background="#66000000"
+            android:padding="8dp"
             android:inputType="textMultiLine"
             android:layout_marginTop="8dp" />
 
@@ -44,7 +69,55 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Tags"
+            android:textColorHint="#FFFFFF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:background="#66000000"
+            android:padding="8dp"
             android:inputType="text"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rate the Restaurant:"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="1.0"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Write a Review:"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/etReview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type your review here"
+            android:textColorHint="#FFFFFF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:background="#66000000"
+            android:padding="8dp"
+            android:inputType="textMultiLine"
+            android:lines="4"
+            android:gravity="top"
             android:layout_marginTop="8dp" />
 
         <Button
@@ -52,13 +125,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Save"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="16dp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:backgroundTint="#000000" />
 
         <Button
             android:id="@+id/btnBack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Back"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:backgroundTint="#000000" />
     </LinearLayout>
 </ScrollView>

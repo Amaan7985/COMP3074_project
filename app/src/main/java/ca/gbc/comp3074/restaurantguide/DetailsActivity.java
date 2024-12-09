@@ -9,9 +9,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import ca.gbc.comp3074.restaurantguide.database.Restaurant;
-import ca.gbc.comp3074.restaurantguide.database.RestaurantDatabase;
-
 public class DetailsActivity extends AppCompatActivity {
 
     private int restaurantId;
@@ -35,11 +32,12 @@ public class DetailsActivity extends AppCompatActivity {
         // Populate TextViews with restaurant details
         populateDetails();
 
-        // Initialize buttons and set click listeners
+        // Initialize buttons
         initializeRateButton();
         initializeViewOnMapButton();
         initializeGetDirectionsButton();
         initializeFullScreenMapButton();
+        initializeShareButtons();
     }
 
     private void populateDetails() {
@@ -93,5 +91,43 @@ public class DetailsActivity extends AppCompatActivity {
             intent.putExtra("longitude", longitude);
             startActivity(intent);
         });
+    }
+
+    private void initializeShareButtons() {
+        Button btnShareEmail = findViewById(R.id.btnShareEmail);
+        Button btnShareFacebook = findViewById(R.id.btnShareFacebook);
+        Button btnShareTwitter = findViewById(R.id.btnShareTwitter);
+
+        String shareContent = "Check out this restaurant: " + restaurantName + ", located at: " + restaurantAddress;
+
+        btnShareEmail.setOnClickListener(v -> shareViaEmail("Restaurant Details", shareContent));
+        btnShareFacebook.setOnClickListener(v -> shareOnFacebook("https://restaurantwebsite.com", shareContent));
+        btnShareTwitter.setOnClickListener(v -> shareOnTwitter("Check out this restaurant!", "https://restaurantwebsite.com"));
+    }
+
+    private void shareViaEmail(String subject, String body) {
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.setType("message/rfc822");
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        emailIntent.putExtra(Intent.EXTRA_TEXT, body);
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Send email via"));
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(this, "No email client installed.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void shareOnFacebook(String url, String quote) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("https://www.facebook.com/sharer/sharer.php?u=" + Uri.encode(url) + "&quote=" + Uri.encode(quote)));
+        startActivity(intent);
+    }
+
+    private void shareOnTwitter(String text, String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        String twitterUrl = "https://twitter.com/intent/tweet?text=" + Uri.encode(text) + "&url=" + Uri.encode(url);
+        intent.setData(Uri.parse(twitterUrl));
+        startActivity(intent);
     }
 }

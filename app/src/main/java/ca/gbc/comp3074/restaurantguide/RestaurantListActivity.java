@@ -3,6 +3,7 @@ package ca.gbc.comp3074.restaurantguide;
 import android.os.Bundle;
 import android.widget.SearchView;
 import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,9 +41,10 @@ public class RestaurantListActivity extends AppCompatActivity {
 
         database = RestaurantDatabase.getInstance(this);
 
+        // Load the restaurants from the database
         loadRestaurants();
 
-        // Set up search filter
+        // Set up search filter functionality
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -58,17 +60,26 @@ public class RestaurantListActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Load restaurants from the database asynchronously.
+     */
     private void loadRestaurants() {
         new Thread(() -> {
             restaurantList = database.restaurantDao().getAllRestaurants();
-            filteredList.addAll(restaurantList); // Initially, all restaurants are displayed
             runOnUiThread(() -> {
+                filteredList.clear();
+                filteredList.addAll(restaurantList); // Initially, display all restaurants
                 adapter = new RestaurantAdapter(filteredList, this);
                 recyclerView.setAdapter(adapter);
             });
         }).start();
     }
 
+    /**
+     * Filter the list of restaurants based on a search query.
+     *
+     * @param query The search query entered by the user.
+     */
     private void filterRestaurants(String query) {
         filteredList.clear();
         if (query.isEmpty()) {
@@ -81,6 +92,10 @@ public class RestaurantListActivity extends AppCompatActivity {
                 }
             }
         }
-        adapter.updateData(filteredList);
+
+        // Notify the adapter about the changes in the filtered list
+        if (adapter != null) {
+            adapter.updateData(filteredList);
+        }
     }
 }

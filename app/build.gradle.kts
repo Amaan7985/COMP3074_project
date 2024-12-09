@@ -43,15 +43,24 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
 
+    // Room Database
     implementation("androidx.room:room-runtime:2.5.2")
-    implementation("com.google.android.gms:play-services-maps:18.1.0")
     annotationProcessor("androidx.room:room-compiler:2.5.2")
     implementation("androidx.room:room-ktx:2.5.2")
+
+    // Google Maps and Places API
+    implementation("com.google.android.gms:play-services-maps:18.1.0")
     implementation("com.google.android.libraries.places:places:2.6.0")
 
+    // Lifecycle and ViewModel
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
 
+    // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    // Optional: Logging for debugging
+    implementation("com.github.tony19:logback-android:2.0.0")
 }

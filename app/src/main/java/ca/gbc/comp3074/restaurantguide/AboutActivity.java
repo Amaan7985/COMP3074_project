@@ -19,7 +19,7 @@ public class AboutActivity extends AppCompatActivity {
                         "Developed by:\n" +
                         "1. Abhishek Kamat    101422675\n\n" +
                         "2. Mohammad Amaan Vohra  101436093\n\n" +
-                        "3. Tanmay Nikunjbhai Panchal   101435967\n\n" +
+                        "3. Tanmay Nikunjbhai Panchal 101435967\n\n" +
                         "The Restaurant Guide App is a simple and user-friendly mobile application that helps users explore various dining options in their area.");
         // Handle Back Button
         Button btnBack = findViewById(R.id.btnBack);

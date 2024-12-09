@@ -5,17 +5,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/bb3">
 
-    <TextView
-        android:id="@+id/aboutTextView"
+    <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="The Restaurant Guide App is a simple and user-friendly mobile application that helps users explore various dining options in their area. It provides a curated list of restaurants with details such as name, description, and ratings, allowing users to discover new places to eat. Users can also add their favorite restaurants to the list, view detailed information about each restaurant, and easily navigate through the available options. Whether you're looking for a fine dining experience or a casual meal, this app offers a convenient way to find the perfect place to satisfy your cravings."
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:textColor="@color/black" />
+        android:background="#66000000"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/aboutTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="The Restaurant Guide App is a simple and user-friendly mobile application that helps users explore various dining options in their area. It provides a curated list of restaurants with details such as name, description, and ratings, allowing users to discover new places to eat. Users can also add their favorite restaurants to the list, view detailed information about each restaurant, and easily navigate through the available options. Whether you're looking for a fine dining experience or a casual meal, this app offers a convenient way to find the perfect place to satisfy your cravings."
+            android:textSize="20sp"
+            android:textStyle="bold|italic"
+            android:gravity="center"
+            android:textColor="#FFFFFF" />
+    </FrameLayout>
 
     <TextView
         android:id="@+id/about_team_members"
@@ -24,12 +32,14 @@
         android:layout_marginTop="16dp"
         android:textSize="16sp"
         android:gravity="center"
-        android:textColor="@color/black" />
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/btnBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Back"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#000000"
+        android:textColor="#FFFFFF" />
 </LinearLayout>

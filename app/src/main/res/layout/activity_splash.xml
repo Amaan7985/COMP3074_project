@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@color/white">
+    android:background="@drawable/bb3"> <!-- Added background image -->
 
     <ImageView
         android:id="@+id/logoImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo"/>
+        android:src="@drawable/logo" />
 
     <TextView
         android:id="@+id/appNameTextView"
@@ -19,9 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Restaurant Guide"
-        android:textSize="24sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         android:gravity="center"
-        android:textColor="@color/black" />
-
+        android:textColor="@android:color/white" /> <!-- Updated text color to white -->
 </LinearLayout>

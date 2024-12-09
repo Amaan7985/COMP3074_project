@@ -19,10 +19,11 @@ public class Restaurant {
     @TypeConverters(TagsConverter.class)
     private List<String> tags;
 
-    private int rating; // Field for storing restaurant rating (default: 0)
+    private float rating; // Updated field to store rating as a float
+    private String review; // New field for storing review
 
     // Full Constructor for Room
-    public Restaurant(int id, String restaurantName, String address, String phone, String description, List<String> tags, int rating) {
+    public Restaurant(int id, String restaurantName, String address, String phone, String description, List<String> tags, float rating, String review) {
         this.id = id;
         this.restaurantName = restaurantName;
         this.address = address;
@@ -30,23 +31,26 @@ public class Restaurant {
         this.description = description;
         this.tags = tags;
         this.rating = rating;
+        this.review = review;
     }
 
     // Simplified Constructor for Manual Use
     @Ignore
-    public Restaurant(String restaurantName, String address, String phone, String description, List<String> tags, int rating) {
+    public Restaurant(String restaurantName, String address, String phone, String description, List<String> tags, float rating, String review) {
         this.restaurantName = restaurantName;
         this.address = address;
         this.phone = phone;
         this.description = description;
         this.tags = tags;
         this.rating = rating;
+        this.review = review;
     }
 
-    // Default constructor for Room or general use
+    // Default Constructor
     @Ignore
     public Restaurant() {
-        this.rating = 0; // Default rating
+        this.rating = 0.0f; // Default rating
+        this.review = ""; // Default empty review
     }
 
     // Getters and Setters
@@ -98,12 +102,20 @@ public class Restaurant {
         this.tags = tags;
     }
 
-    public int getRating() {
+    public float getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(float rating) {
         this.rating = rating;
+    }
+
+    public String getReview() {
+        return review;
+    }
+
+    public void setReview(String review) {
+        this.review = review;
     }
 
     @Override
@@ -116,6 +128,7 @@ public class Restaurant {
                 ", description='" + description + '\'' +
                 ", tags=" + tags +
                 ", rating=" + rating +
+                ", review='" + review + '\'' +
                 '}';
     }
 }
